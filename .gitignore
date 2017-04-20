@@ -6,6 +6,11 @@ luac.out
 *.zip
 *.tar.gz
 
+# Maan build files
+*.maan
+*.jcr6
+
+
 # Object files
 *.o
 *.os
@@ -39,3 +44,6 @@ luac.out
 *.x86_64
 *.hex
 
+# Hidden files created by the Mac finder
+.DS_Store
+._*
