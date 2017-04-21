@@ -1,0 +1,6 @@
+[vars]
+Title=LAURA II - Development Kit
+Author=Jeroen P. Broks
+Console=Show
+StartForm=Project Manager
+exe=../release/LAURA II - Development Kit
