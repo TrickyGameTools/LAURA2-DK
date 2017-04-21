@@ -6,3 +6,6 @@ StartForm=ProjectManager
 #exe=/Volumes/Scyndi/Projects/Applications/Maan/LAURA2SDK/release/LAURA II - Development Kit
 exe=LAURA II - Development Kit
 file.macicon=Main/LAURA2.icns
+
+[List:IMPORT]
+/Volumes/Scyndi/Projects/Applications/blitzmax/jcr6+/LAURA II/inc/Witch.png > Art/Witch.png

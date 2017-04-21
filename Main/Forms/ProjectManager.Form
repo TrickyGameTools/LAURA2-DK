@@ -17,6 +17,8 @@ kids
 		br=0
 		bg=0
 		bb=0
+		pic=Art/Witch.png
+		picflags=FIT CENTER
 	Panel Title
 		x=25%
 		y=0
