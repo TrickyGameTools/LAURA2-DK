@@ -5,3 +5,4 @@ Console=Show
 StartForm=ProjectManager
 #exe=/Volumes/Scyndi/Projects/Applications/Maan/LAURA2SDK/release/LAURA II - Development Kit
 exe=LAURA II - Development Kit
+file.macicon=Main/LAURA2.icns
