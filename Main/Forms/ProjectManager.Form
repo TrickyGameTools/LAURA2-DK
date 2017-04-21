@@ -29,4 +29,141 @@ kids
 		br=0
 		bg=0
 		bb=0
-	end
+	Tabber ProjectManagement
+		x=0
+		y=25%
+		width=100%
+		height=75%
+		br=0
+		bg=0
+		bb=0
+		kids
+			Tab Pick Project
+				br=0
+				bg=0
+				bb=0
+				x=0
+				y=0
+				width=100%
+				height=100%
+				kids
+					ListBox PickProject
+						x=0
+						y=0
+						width=100%
+						height=25-
+						br=1
+						bg=2
+						bb=3
+						r=0
+						g=180
+						b=255
+					Button Start
+						x=125-
+						y=25-
+						width=125
+						height=25
+						caption=Start
+				end
+			Tab New Project
+				br=0
+				bg=0
+				bb=0
+				x=0
+				y=0
+				width=100%
+				height=100%
+				kids
+					Label T1
+						caption=Title
+						x=0
+						y=0
+						width=50%
+						height=25
+						r=0
+						g=255
+						b=0
+						br=0
+						bg=2
+						bb=0
+					TextField Title
+						x=50%
+						width=50%
+						y=0
+						height=25
+						br=0
+						bg=20
+						bb=0
+						r=180
+						g=255
+						b=0
+					Label T2
+						caption=Create project in:
+						x=0
+						y=25
+						width=50%
+						height=50
+						r=0
+						g=255
+						b=0
+						br=0
+						bg=2
+						bb=0
+					Panel T2Panel
+						x=50%
+						y=25
+						width=50%
+						height=50
+						r=0
+						g=255
+						b=0
+						br=0
+						bg=2
+						bb=0
+						kids
+						Radio CreateIn#DefaultDir
+							r=0
+							g=255
+							b=0
+							br=0
+							bg=2
+							bb=0
+							caption=Default project directory
+							x=0
+							y=0
+							width=100%
+							height=25
+							state=checked
+						Radio CreateIn#CustomDir
+							r=0
+							g=255
+							b=0
+							br=0
+							bg=2
+							bb=0
+							caption=Custom project directory
+							x=0
+							y=25
+							width=100%
+							height=25
+						end
+					Label T3
+						caption=Your directory
+						x=0
+						y=75
+						width=50%
+						height=25
+						r=0
+						g=255
+						b=0
+						br=0
+						bg=2
+						bb=0
+					TextField ProjectCreateDir
+						x=50%
+						width=50%
+						height=25
+						y=75
+				end
+		end
+end
