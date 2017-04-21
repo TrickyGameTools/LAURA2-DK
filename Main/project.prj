@@ -2,5 +2,6 @@
 Title=LAURA II - Development Kit
 Author=Jeroen P. Broks
 Console=Show
-StartForm=Project Manager
-exe=../release/LAURA II - Development Kit
+StartForm=ProjectManager
+#exe=/Volumes/Scyndi/Projects/Applications/Maan/LAURA2SDK/release/LAURA II - Development Kit
+exe=LAURA II - Development Kit

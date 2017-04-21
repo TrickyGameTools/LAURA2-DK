@@ -1,1 +1,30 @@
-# Content comes later
+# Main Form
+
+
+width=75%
+height=75%
+caption=LAURA II - DK - Project Manager
+flags=TITLE CLIENT CENTER
+bg=0
+bb=0
+br=0
+kids
+	Panel Heks
+		x=0
+		y=0
+		width=25%
+		height=25%
+		br=0
+		bg=0
+		bb=0
+	Panel Title
+		x=25%
+		y=0
+		width=75%
+		height=25%
+		pic=Art/Logo.png
+		picflags=FIT CENTER
+		br=0
+		bg=0
+		bb=0
+	end
