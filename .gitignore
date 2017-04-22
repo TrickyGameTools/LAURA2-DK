@@ -47,3 +47,8 @@ luac.out
 # Hidden files created by the Mac finder
 .DS_Store
 ._*
+
+# Eclipse shit
+.settings
+.buildpath
+.project
