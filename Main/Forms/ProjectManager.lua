@@ -41,7 +41,12 @@ function KID_BUTTON_CreateProject_Action()
        end
        allowstring = allowstring and allowchar
    end
-   if not allowstring then return alert("Sorry!\nI cannot accept that title.\nI only allow roman letters WITHOUT accepts or umlauts, spaces, numbers, dashes and underscores") end     
+   if not allowstring then return alert("Sorry!\nI cannot accept that title.\nI only allow roman letters WITHOUT accepts or umlauts, spaces, numbers, dashes and underscores") end
+   -- And now for the output dir
+   local outdir = Dirry(MAAN_Text('KID_TEXTFIELD_ProjectCreateDir'):gsub("^%s*(.-)%s*$", "%1"))
+   if outdir=="" then return alert("No output dir given") end
+   if IsFile(outdir) then return alert("I'm afraid '"..outdir.."' is a file, and thus I cannot create a project on that location. You'll have to change that name") end
+   
 end
 
 function GALE_OnLoad()
