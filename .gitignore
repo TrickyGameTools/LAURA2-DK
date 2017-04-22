@@ -52,3 +52,7 @@ luac.out
 .settings
 .buildpath
 .project
+
+# MKL License shit
+MKL_Backup
+License.MKL.ini
