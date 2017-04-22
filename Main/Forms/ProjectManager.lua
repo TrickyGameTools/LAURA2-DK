@@ -22,33 +22,12 @@
 	to the project the exceptions are needed for.
 Version: 17.04.22
 ]]
--- Content comes later
 
-projectlist = MAAN_LoadVar("ProjectList.lua") or {}
+-- @USEDIR Forms/ProjectManagerUse
+
+-- projectlist = MAAN_LoadVar("ProjectList.lua") or {}
 
 
-JCR_Dirs = { 'AUDIO',
-             'DATA',
-             'FONTS',
-             'GFX',
-             'KTHURA',
-             'LANGUAGES',
-             'MUSIC',
-             'SCRIPT/Char',
-             'SCRIPT/Events',
-             'SCRIPT/Flow',
-             'SCRIPT/Init',
-             'SCRIPT/Flow',
-             'SCRIPT/JINC',
-             'SCRIPT/LIBS',
-             'SCRIPT/Maps',
-             'SCRIPT/OSBOOT',
-             'SCRIPT/Subs',
-             'SCRIPT/System',
-             'SCRIPT/Use/Anyway',
-             'SCRIPT/Use/Linkers',
-             'VOCALS'
-           }
 
 function FORM_ProjectManager_Close()
      MAAN_SaveVar(projectlist,"ProjectList.lua")
@@ -60,7 +39,7 @@ function OwnDirAllowed(destroy)
 	MAAN_Enabled('KID_TEXTFIELD_ProjectCreateDir',MAAN_Checked('KID_RADIO_CreateIn#CustomDir'))
 	-- --[[
 	if MAAN_Checked('KID_RADIO_CreateIn#DefaultDir') then
-		MAAN_Text('KID_TEXTFIELD_ProjectCreateDir',"$Documents$/LAURA2Projects/"..MAAN_Text('KID_TEXTFIELD_Title'))
+		MAAN_Text('KID_TEXTFIELD_ProjectCreateDir',"$MyDocs$/LAURA2Projects/"..MAAN_Text('KID_TEXTFIELD_Title'))
 	elseif destroy then
 		MAAN_Text('KID_TEXTFIELD_ProjectCreateDir',"")
 	end
@@ -105,10 +84,20 @@ function KID_BUTTON_CreateProject_Action()
           if pn==title then return alert("I already have a project with that title.\nYou'll have to pick an other name") end
       end
    end
+   local Template = MAAN_ItemText('KID_LISTBOX_Template')
+   if Template=="" then return alert("Please select a template setting") end
    -- Extra user's permission
    if not Proceed("Understand I shall create a project titled '"..title.."' in the directory '"..outdir.."'. \n\nIs that okay?") then return end   
+   CreateProject(outdir,Template)
 end
 
 function GALE_OnLoad()
   CSay("Script for project Manager loaded -- Configuring....")
+  CSay("Are there any projects?")
+  projectlist = MAAN_LoadVar("ProjectList.lua") 
+  if not projectlist then projectlist = {} CSay("Nothing loaded, so creating new list") end
+  for a,_ in spairs(projectlist) do
+      MAAN_Add('KID_LISTBOX_PickProject',a)
+      CSay("Added project: "..a)
+  end    
 end  
