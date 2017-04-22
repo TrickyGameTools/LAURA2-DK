@@ -51,7 +51,10 @@ function KID_BUTTON_CreateProject_Action()
       IsProject = IsProject and IsFile(outdir.."/L2DKProject.lua")
       IsProject = IsProject and IsDir(outdir.."/JCR")
       if not IsProject then return alert("Sorry!\nIt seems this is an existing directory, and I don't know for what it's used, but it's not recognized as a valid LAURA II DK project.\nIf you really want to use that directory name, rename or remove the existing folder first and try it again") end
+      if not Proceed("A directory named '"..outdir.."' has been found.\nI cannot create a new project here, but at least I can adopt this project if it was not yet in the project list\n\nDo you want me to?") then return end
    end
+   -- Extra user's permission
+   if not Proceed("Understand I shall create a project titled '"..title.."' in the directory '"..outdir.."'. \n\nIs that okay?") then return end   
 end
 
 function GALE_OnLoad()
