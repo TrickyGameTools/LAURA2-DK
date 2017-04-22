@@ -32,7 +32,7 @@ function KID_BUTTON_CreateProject_Action()
    -- If there is no title at all then no go!
    if title=="" then return alert("Sorry, I do need a title before I can create a project for you!") end
    -- Let's now see if the name can be allowed
-   local allowed = "qwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnm 1234567890_-"
+   local allowed = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM 1234567890_-"
    allowstring = true  
    for i1=1,len(title) do
        allowchar = false 
