@@ -164,6 +164,36 @@ kids
 						width=50%
 						height=25
 						y=75
+					Label T4
+						caption=Template
+						r=0
+						g=255
+						b=0
+						br=0
+						bg=2
+						bb=0
+						x=0
+						y=100
+						width=50%
+						height=100
+					ListBox Template
+						x=50%
+						y=100
+						width=50%
+						height=100		
+						br=1
+						bg=2
+						bb=3
+						r=0
+						g=180
+						b=255
+						item * Empty Project *
+					Button CreateProject
+						x=-150
+						y=-25
+						width=150
+						y=25
+						caption=Create Project							
 				end
 		end
 end

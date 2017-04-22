@@ -26,3 +26,7 @@ end
 function KID_TEXTFIELD_Title_Action(idx)
 	OwnDirAllowed()
 end	
+
+function GALE_OnLoad()
+  CSay("Script for project Manager loaded -- Configuring....")
+end  
