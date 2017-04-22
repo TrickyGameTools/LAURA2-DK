@@ -46,7 +46,12 @@ function KID_BUTTON_CreateProject_Action()
    local outdir = Dirry(MAAN_Text('KID_TEXTFIELD_ProjectCreateDir'):gsub("^%s*(.-)%s*$", "%1"))
    if outdir=="" then return alert("No output dir given") end
    if IsFile(outdir) then return alert("I'm afraid '"..outdir.."' is a file, and thus I cannot create a project on that location. You'll have to change that name") end
-   
+   if IsDir(outdir) then
+      local IsProject = true
+      IsProject = IsProject and IsFile(outdir.."/L2DKProject.lua")
+      IsProject = IsProject and IsDir(outdir.."/JCR")
+      if not IsProject then return alert("Sorry!\nIt seems this is an existing directory, and I don't know for what it's used, but it's not recognized as a valid LAURA II DK project.\nIf you really want to use that directory name, rename or remove the existing folder first and try it again") end
+   end
 end
 
 function GALE_OnLoad()
