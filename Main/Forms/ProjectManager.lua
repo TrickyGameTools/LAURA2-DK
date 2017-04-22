@@ -26,6 +26,30 @@ Version: 17.04.22
 
 projectlist = MAAN_LoadVar("ProjectList.lua") or {}
 
+
+JCR_Dirs = { 'AUDIO',
+             'DATA',
+             'FONTS',
+             'GFX',
+             'KTHURA',
+             'LANGUAGES',
+             'MUSIC',
+             'SCRIPT/Char',
+             'SCRIPT/Events',
+             'SCRIPT/Flow',
+             'SCRIPT/Init',
+             'SCRIPT/Flow',
+             'SCRIPT/JINC',
+             'SCRIPT/LIBS',
+             'SCRIPT/Maps',
+             'SCRIPT/OSBOOT',
+             'SCRIPT/Subs',
+             'SCRIPT/System',
+             'SCRIPT/Use/Anyway',
+             'SCRIPT/Use/Linkers',
+             'VOCALS'
+           }
+
 function FORM_ProjectManager_Close()
      MAAN_SaveVar(projectlist,"ProjectList.lua")
      os.exit()
