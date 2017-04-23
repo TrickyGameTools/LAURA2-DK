@@ -341,6 +341,144 @@ kids
 		    	height=25
 		    	default=BottomRight
 		    	block=yes
+		    Label IDLAB#Dev
+		    	caption=Development Version
+		    	x=0
+		    	y=125
+		    	width=50%
+		    	height=25
+		    	r=0
+				g=255
+				b=0
+				br=0
+				bg=2
+				bb=0
+			Panel IDPAN#Dev
+				x=50%
+				y=125
+				width=50%
+				height=25
+				r=180
+				g=0
+				b=255
+				br=18
+				bg=0	
+				bb=25
+				kids
+					Radio IDYes#Dev
+						x=0
+						y=0
+						width=50%
+						height=100%
+						caption=Yes
+						state=checked
+						r=180
+						g=0
+						b=255
+						br=18
+						bg=0	
+						bb=25
+					Radio IDNo#Dev
+						x=50%
+						y=0
+						width=50%
+						height=100%
+						caption=No
+						r=180
+						g=0
+						b=255
+						br=18
+						bg=0	
+						bb=25
+				end		
+		    Label IDLAB#OSMouse
+		    	caption=Use the OS own mouse pointer
+		    	x=0
+		    	y=150
+		    	width=50%
+		    	height=25
+		    	r=0
+				g=255
+				b=0
+				br=0
+				bg=2
+				bb=0
+			Panel IDPAN#OSMouse
+				x=50%
+				y=150
+				width=50%
+				height=25
+				r=180
+				g=0
+				b=255
+				br=18
+				bg=0	
+				bb=25
+				kids
+					Radio IDYes#OSMousePointer
+						x=0
+						y=0
+						width=50%
+						height=100%
+						caption=Yes
+						state=checked
+						r=180
+						g=0
+						b=255
+						br=18
+						bg=0	
+						bb=25
+					Radio IDNo#OSMousePointer
+						x=50%
+						y=0
+						width=50%
+						height=100%
+						caption=No
+						r=180
+						g=0
+						b=255
+						br=18
+						bg=0	
+						bb=25
+				end		
+		    Label IDLAB#Error
+		    	caption=Error Message
+		    	x=0
+		    	y=175
+		    	width=50%
+		    	height=25
+		    	r=0
+				g=255
+				b=0
+				br=0
+				bg=2
+				bb=0
+		    TextField IDField#Error
+		    	x=50%
+		    	y=175
+		    	width=50%
+		    	height=25
+		    	default=Oops!\nYou tried something we didn't think of!
+		    	block=no
+		    Label IDLAB#DevError
+		    	caption=Error Message for Devs
+		    	x=0
+		    	y=200
+		    	width=50%
+		    	height=25
+		    	r=0
+				g=255
+				b=0
+				br=0
+				bg=2
+				bb=0
+		    TextField IDField#DevError
+		    	x=50%
+		    	y=200
+		    	width=50%
+		    	height=25
+		    	default=An error, but since you are a devloper, maybe I can show you the full log.
+		    	block=no
 		  end
 		Tab Content
 		  x=0

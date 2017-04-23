@@ -31,10 +31,6 @@ Version: 17.04.22
 
 -- Project manager
 
-function FORM_ProjectManager_Close()
-     MAAN_SaveVar(projectlist,"ProjectList.lua")
-     os.exit()
-end     
 
 
 function OwnDirAllowed(destroy)
@@ -93,7 +89,14 @@ function KID_BUTTON_CreateProject_Action()
    CreateProject(outdir,Template)
 end
 
-
+function GrabIDFromGUI()
+  local pd = project.data.ID
+  CSay("Grabbing ID Data from GUI")
+  for g in each(MAAN_Indexes('KID_TEXTFIELD_IDField')) do
+      pd[g] = MAAN_Text('KID_TEXTFIELD_IDField#'..g)
+  end
+  ---CSay(serialize(Prj,project))
+end
 
 
 
@@ -110,12 +113,28 @@ function KID_BUTTON_Start_Action()
      MAAN_Show('KID_PANEL_WorkPanel')
      CSay("Did I show the work panel?")
      MAAN_Text('KID_LABEL_PrjStat',project.title)
+     project.data = project.data or {}
+     project.data.ID = project.data.ID or {}  
+     project.data.ID.Title = project.data.ID.Title or project.title
+     for g in each(MAAN_Indexes('KID_TEXTFIELD_IDField')) do
+         if project.data.ID[g] then MAAN_Text('KID_TEXTFIELD_IDField#'..g,project.data.ID[g]) end
+     end
 end
 
 
 
 
--- Core load
+-- Core load and unload
+
+function FORM_ProjectManager_Close()
+     MAAN_SaveVar(projectlist,"ProjectList.lua")
+     if project and project.dir then
+         GrabIDFromGUI()
+         MAAN_SaveVar(project.data,project.dir.."/L2DKProject.lua")
+     end    
+     os.exit()
+end     
+
 
 function GALE_OnLoad()
   CSay("Script for project Manager loaded -- Configuring....")
