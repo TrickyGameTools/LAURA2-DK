@@ -29,6 +29,8 @@ Version: 17.04.22
 
 
 
+-- Project manager
+
 function FORM_ProjectManager_Close()
      MAAN_SaveVar(projectlist,"ProjectList.lua")
      os.exit()
@@ -91,6 +93,30 @@ function KID_BUTTON_CreateProject_Action()
    CreateProject(outdir,Template)
 end
 
+
+
+
+
+-- Work panel
+
+function KID_BUTTON_Start_Action()
+     project = {}
+     project.title = MAAN_ItemText('KID_LISTBOX_PickProject')
+     if project.title=="" then return end
+     project.dir = projectlist[project.title].dir
+     project.data = MAAN_LoadVar(project.dir.."/L2DKProject.lua")
+     if not project.data then alert("Couldn't load the project data") return end
+     MAAN_Hide("KID_PANEL_PanelProjectManagement")
+     MAAN_Show('KID_PANEL_WorkPanel')
+     CSay("Did I show the work panel?")
+     MAAN_Text('KID_LABEL_PrjStat',project.title)
+end
+
+
+
+
+-- Core load
+
 function GALE_OnLoad()
   CSay("Script for project Manager loaded -- Configuring....")
   CSay("Are there any projects?")
@@ -100,4 +126,5 @@ function GALE_OnLoad()
       MAAN_Add('KID_LISTBOX_PickProject',a)
       CSay("Added project: "..a)
   end    
+  MAAN_Hide('KID_PANEL_WorkPanel')
 end  

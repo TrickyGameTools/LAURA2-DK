@@ -24,7 +24,8 @@ JCR_Dirs = { 'AUDIO',
 
            
 function CreateProject(dir,Template)
-      MAAN_Hide("FORM_ProjectManager")
+      --MAAN_Hide("FORM_ProjectManager")
+      MAAN_Hide("KIDS_PANEL_PPanelProjectManagement")
       CSay("Creating needed dirs")
       for d in each(JCR_Dirs) do
           CSay("Creating dir: "..dir.."/"..d)
@@ -49,5 +50,5 @@ function CreateProject(dir,Template)
       alert("Project created!\nHave fun!")
       projectlist[MAAN_Text('KID_TEXTFIELD_Title')] = { dir=dir}
       MAAN_SaveVar(projectlist,"ProjectList.lua")      
-      MAAN_Show('FORM_Project')
+      MAAN_Show('KID_PANEL_WorkPanel')
 end

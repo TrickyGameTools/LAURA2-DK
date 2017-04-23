@@ -29,11 +29,24 @@ kids
 		br=0
 		bg=0
 		bb=0
-	Tabber ProjectManagement
+	Panel PanelProjectManagement			
 		x=0
 		y=25%
 		width=100%
 		height=75%
+		br=0
+		bg=0
+		bb=0
+	kids
+	  Tabber TabberProjectManagement
+		#x=0
+		#y=25%
+		#width=100%
+		#height=75%
+		x=0
+		y=0
+		width=100%
+		height=100%
 		br=0
 		bg=0
 		bb=0
@@ -196,4 +209,155 @@ kids
 						caption=Create Project							
 				end
 		end
+   end
+   Panel WorkPanel
+		x=0
+		y=25%
+		width=100%
+		height=75%
+		br=0
+		bg=0
+		bb=0
+      kids
+      Label PrjStat
+        caption=???
+        flags=CENTER
+        x=0
+        y=25-
+        width=100%
+        height=25
+		br=0
+		bg=0
+		bb=0
+		r=255
+		g=180
+		b=0
+      Tabber WorkTabber
+		x=0
+		y=0
+		width=100%
+		height=25-
+		br=0
+		bg=0
+		bb=0
+		kids
+		Tab Meta
+		  x=0
+		  y=0
+		  width=100%
+		  height=100%
+		  br=0
+		  bg=0
+		  bb=0
+		  kids
+		    Label IDLAB#Title
+		    	caption=Title
+		    	x=0
+		    	y=0
+		    	width=50%
+		    	height=25
+		    	r=0
+				g=255
+				b=0
+				br=0
+				bg=2
+				bb=0
+		    TextField IDField#Title
+		    	x=50%
+		    	y=0
+		    	width=50%
+		    	height=25
+		    Label IDLAB#ID
+		    	caption=ID
+		    	x=0
+		    	y=25
+		    	width=50%
+		    	height=25
+		    	r=0
+				g=255
+				b=0
+				br=0
+				bg=2
+				bb=0
+		    TextField IDField#ID
+		    	x=50%
+		    	y=25
+		    	width=50%
+		    	height=25
+		    Label IDLAB#Engine
+		    	caption=Engine
+		    	x=0
+		    	y=50
+		    	width=50%
+		    	height=25
+		    	r=0
+				g=255
+				b=0
+				br=0
+				bg=2
+				bb=0
+		    TextField IDField#Engine
+		    	x=50%
+		    	y=50
+		    	width=50%
+		    	height=25
+		    	caption=LAURA2
+		    	block=yes
+		    Label IDLAB#Ver
+		    	caption=Version
+		    	x=0
+		    	y=75
+		    	width=50%
+		    	height=25
+		    	r=0
+				g=255
+				b=0
+				br=0
+				bg=2
+				bb=0
+		    TextField IDField#Version
+		    	x=50%
+		    	y=75
+		    	width=50%
+		    	height=25
+		    	default=1.0.0
+		    	block=no
+		    Label IDLAB#LoadingPos
+		    	caption=Loading Position
+		    	x=0
+		    	y=100
+		    	width=50%
+		    	height=25
+		    	r=0
+				g=255
+				b=0
+				br=0
+				bg=2
+				bb=0
+		    TextField IDField#LoadingPosition
+		    	x=50%
+		    	y=100
+		    	width=50%
+		    	height=25
+		    	default=BottomRight
+		    	block=yes
+		  end
+		Tab Content
+		  x=0
+		  y=0
+		  width=100%
+		  height=100%
+		  br=0
+		  bg=0
+		  bb=0
+		Tab Assoc
+ 		  x=0
+		  y=0
+		  width=100%
+		  height=100%
+		  br=0
+		  bg=0
+		  bb=0
+		end
+      end   		
 end
