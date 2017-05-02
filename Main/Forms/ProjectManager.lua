@@ -98,6 +98,20 @@ function GrabIDFromGUI()
   ---CSay(serialize(Prj,project))
 end
 
+function KID_BUTTON_AsBrowse_Action(idx)
+   local filter,default=
+   -- @IF $MAC
+    "Applications:app","/Applications"   
+   -- @FI
+   -- @IF IGNORE
+   filter,default=
+   -- @FI
+   -- @IF $WINDOWS
+   "Executables:exe,com","C:\\Program Files"
+   -- @FI
+   CSay("Looking for: "..(filter or "nil").." in: "..(default or "nil"))
+   local f=RequestFile("Please select an application ("..idx..")",filter,default)
+end
 
 
 -- Work panel
