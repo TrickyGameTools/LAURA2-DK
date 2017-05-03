@@ -31,6 +31,22 @@ Version: 17.04.23
 
 -- Project manager
 
+globalfile = Dirry('$AppSupport$/LAURA2DK/GlobalConfig.lua')
+CSay('Reading: '..globalfile)
+--local ok
+varglobal = MAAN_LoadVar(globalfile)
+--[[
+if not ok then
+   CSay("ERROR -- Global File -- "..varglobal)
+else
+   CSay('LVSuc')   
+end   
+if not varglobal then 
+   CSay("I could not load, so let's just create an empty record")
+   varglobal = {}
+end   
+]]
+CFG = {[true]=varglobal}
 
 
 function OwnDirAllowed(destroy)
@@ -98,6 +114,28 @@ function GrabIDFromGUI()
   ---CSay(serialize(Prj,project))
 end
 
+function AssocUpdate(idx)
+    for g in each(MAAN_Indexes('KID_TEXTFIELD_AsValue'))  do
+        local b = MAAN_Checked('KID_CHECKBOX_AsGlob#'..g)
+        project.data.CFGIG[g] = b
+        CFG[b][g]=MAAN_Text('KID_TEXTFIELD_AsValue#'..g)
+    end
+    CSay(serialize("projectdata",project.data))
+end
+
+function AssocRead()
+    --CSay(serialize("projectdata",project.data))
+    --CSay(serialize('CFG        ',CFG))
+    for g in each(MAAN_Indexes('KID_TEXTFIELD_AsValue'))  do
+        local b = project.data.CFGIG[g]==true
+        --CSay(serialize('g',g))
+        --CSay(serialize('b',b))
+        MAAN_Checked('KID_CHECKBOX_AsGlob#'..g,b)
+        MAAN_Text('KID_TEXTFIELD_AsValue#'..g,CFG[b][g])
+    end
+end
+
+    
 function KID_BUTTON_AsBrowse_Action(idx)
    local filter,default=
    -- @IF $MAC
@@ -111,6 +149,18 @@ function KID_BUTTON_AsBrowse_Action(idx)
    -- @FI
    CSay("Looking for: "..(filter or "nil").." in: "..(default or "nil"))
    local f=RequestFile("Please select an application ("..idx..")",filter,default)
+   if f and f~="" then
+      MAAN_Text('KID_TEXTFIELD_AsValue#'..idx,f)
+      AssocUpdate(idx)
+   end   
+end
+
+function KID_TEXTFIELD_AsValue_Action(idx) AssocUpdate(idx) end
+
+function KID_CHECKBOX_AsGlob_Action(idx)
+     local b = MAAN_Checked('KID_CHECKBOX_AsGlob#'..idx)
+     MAAN_Text('KID_TEXTFIELD_AsValue#'..idx,CFG[b][idx])   
+     AssocUpdate(idx) 
 end
 
 
@@ -130,9 +180,13 @@ function KID_BUTTON_Start_Action()
      project.data = project.data or {}
      project.data.ID = project.data.ID or {}  
      project.data.ID.Title = project.data.ID.Title or project.title
+     project.data.CFG = project.data.CFG or {}
+     project.data.CFGIG = project.data.CFGIG or {}
+     CFG[false]=project.data.CFG
      for g in each(MAAN_Indexes('KID_TEXTFIELD_IDField')) do
          if project.data.ID[g] then MAAN_Text('KID_TEXTFIELD_IDField#'..g,project.data.ID[g]) end
      end
+     AssocRead()
 end
 
 
@@ -145,7 +199,8 @@ function FORM_ProjectManager_Close()
      if project and project.dir then
          GrabIDFromGUI()
          MAAN_SaveVar(project.data,project.dir.."/L2DKProject.lua")
-     end    
+     end
+     MAAN_SaveVar(varglobal,globalfile)    
      os.exit()
 end     
 
