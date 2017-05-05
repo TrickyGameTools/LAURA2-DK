@@ -9,3 +9,6 @@ file.macicon=Main/LAURA2.icns
 
 [List:IMPORT]
 /Volumes/Scyndi/Projects/Applications/blitzmax/jcr6+/LAURA II/inc/Witch.png > Art/Witch.png
+
+[List:Resources.mac]
+/Volumes/Scyndi/Projects/Applications/BlitzMax/JCR6+/Kthura Map Editor/Kthura Map Editor.app > Kthura Map Editor.app
