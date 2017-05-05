@@ -623,10 +623,33 @@ kids
 		        width=90
 		        height=25
 		        caption=...
-		           
-		        
-		        
 		  end
+		Tab Export
+			x=0
+			y=0
+			width=100%
+			height=100%
+			kids
+			end  
+		Tab Output
+		    x=0
+		    y=0
+		    width=100%
+		    height=100%
+		    kids
+		        TextArea Output
+		           x=0
+		           y=0
+		           width=100%
+		           height=100%
+		           r=255
+		           g=255
+		           b=255
+		           br=0
+		           bg=0
+		           bb=0
+		           default=No output received yet
+		    end  
 		end
       end   		
 end
