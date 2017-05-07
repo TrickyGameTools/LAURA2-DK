@@ -624,6 +624,109 @@ kids
 		        height=25
 		        caption=...
 		  end
+		Tab Kthura Settings
+			x=0
+			y=0
+			width=100%
+			height=100%
+			kids
+			    Label KthuraLabel#GeneralData
+			       caption=General Data
+			       x=0
+			       y=0
+			       width=25%
+			       height=25
+  		    	   r=0
+				   g=255
+				   b=0
+				   br=0
+				   bg=2
+				   bb=0
+			    Button KthuraHelp#GENERALDATA
+			       x=25%
+			       y=0
+			       width=5%
+			       height=25
+			       caption=?   
+			    TextArea Kthura#GENERALDATA
+			       x=30%
+			       y=0
+			       width=70%
+			       height=10%
+			       r=180
+			       g=0
+			       b=255
+			       br=18
+			       bg=0
+			       bb=25
+			       default=Full Map Title
+			    Label KthuraLabel#CSPOTS   
+			       caption=Custom Spots
+			       x=0
+			       y=10%
+			       width=25%
+			       height=25
+  		    	   r=0
+				   g=255
+				   b=0
+				   br=0
+				   bg=2
+				   bb=0
+			    Button KthuraHelp#CSPOTS
+			       x=25%
+			       y=10%
+			       width=5%
+			       height=25
+			       caption=?   
+			    TextArea Kthura#CSPOTS
+			       x=30%
+			       y=10%
+			       width=70%
+			       height=10%
+			       r=180
+			       g=0
+			       b=255
+			       br=18
+			       bg=0
+			       bb=25
+			       default=$myspot
+			    Label KthuraLabel#Lines  
+			       caption=Lines
+			       x=0
+			       y=20%
+			       width=25%
+			       height=25
+  		    	   r=0
+				   g=255
+				   b=0
+				   br=0
+				   bg=2
+				   bb=0
+			    Button KthuraHelp#LINES
+			       x=25%
+			       y=20%
+			       width=5%
+			       height=25
+			       caption=?   
+			    TextArea Kthura#LINES
+			       x=30%
+			       y=20%
+			       width=70%
+			       height=10%
+			       r=180
+			       g=0
+			       b=255
+			       br=18
+			       bg=0
+			       bb=25
+			       default=0:0:800:600		
+			    Button KthuraScript
+			       x=400-
+			       y=25-
+			       width=400
+			       height=25
+			       caption=Edit Custom Spot Script			          	          
+			end  		      
 		Tab Export
 			x=0
 			y=0

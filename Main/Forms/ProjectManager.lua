@@ -23,6 +23,7 @@
 Version: 17.04.23
 ]]
 
+-- @USEDIR Libs
 -- @USEDIR Forms/ProjectManagerUse
 
 -- projectlist = MAAN_LoadVar("ProjectList.lua") or {}
@@ -186,6 +187,13 @@ function KID_BUTTON_Start_Action()
      for g in each(MAAN_Indexes('KID_TEXTFIELD_IDField')) do
          if project.data.ID[g] then MAAN_Text('KID_TEXTFIELD_IDField#'..g,project.data.ID[g]) end
      end
+     project.data.kthura = project.data.kthura or {}
+     project.kthura = project.data.kthura
+     for g in each(MAAN_Indexes('KID_TEXTAREA_Kthura')) do
+         project.kthura[g] = project.kthura[g] or MAAN_Text('KID_TEXTAREA_Kthura#'..g)
+         MAAN_Text('KID_TEXTAREA_Kthura#'..g,project.kthura[g]) 
+     end   
+
      AssocRead()
 end
 
