@@ -23,6 +23,9 @@
 Version: 17.05.08
 ]]
 
+
+-- This stuff is all used by the GALE pre-processor which is installed in Maan
+
 -- @USEDIR Libs
 -- @USEDIR Forms/ProjectManagerUse
 
