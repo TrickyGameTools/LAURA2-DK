@@ -488,6 +488,154 @@ kids
 		  br=0
 		  bg=0
 		  bb=0
+		  kids
+		     ListBox ContentRoot
+		       x=0
+		       y=0
+		       width=20%
+		       height=100%
+		       r=255
+		       g=0
+		       b=0
+		       br=25
+		       bg=0
+		       bb=0
+		     ListBox ContentFile
+		       x=20%
+		       y=0
+		       width=30%
+		       height=100%
+		       r=255
+		       g=255
+		       b=0
+		       br=25
+		       bg=25
+		       bb=0
+		     Panel ContentWorkPanel
+		       x=50%
+		       y=0
+		       width=50%
+		       height=100%
+		       r=255
+		       g=255
+		       b=255
+		       rb=0
+		       rg=0
+		       bb=0
+		       kids
+		           Label ContPwdL
+		             x=0
+		             y=0
+		             width=35%
+		             height=25
+		             caption=Current Directory:
+		             r=180
+		             g=255
+		             b=0
+		           Label ContPwd  
+		             x=45%
+		             y=0
+		             width=35%
+		             height=25
+		             r=0
+		             g=180
+		             b=255
+		             br=0
+		             bg=18
+		             bb=25
+		           Button OpenPwd 
+		             x=80%
+		             y=0
+		             width=20%
+		             height=25
+		             caption=xxx		             
+		           Label ContMkDir
+		             x=0
+		             y=25
+		             width=35%
+		             height=25
+		             caption=Create Directory:
+		             r=180
+		             g=255
+		             b=0
+		           TextField ContMkDir
+		             x=45%
+		             y=25
+		             width=35%
+		             height=25
+		             r=0
+		             g=180
+		             b=255
+		             br=0
+		             bg=18
+		             bb=25
+		           Button CreateDir 
+		             x=80%
+		             y=25
+		             width=20%
+		             height=25
+		             caption=Go!
+		           Label ImportfileLabel
+		             x=0
+		             y=50
+		             width=35%
+		             height=25
+		             caption=Import File:
+		             r=180
+		             g=255
+		             b=0
+		           TextField ImportFileName
+		             x=45%
+		             y=50
+		             width=35%
+		             height=25
+		             r=0
+		             g=180
+		             b=255
+		             br=0
+		             bg=18
+		             bb=25
+		           Button ImportFileBrowse 
+		             x=80%
+		             y=50
+		             width=10%
+		             height=25
+		             caption=Browse
+		           Button ImportFileGo 
+		             x=90%
+		             y=50
+		             width=10%
+		             height=25
+		             caption=Import
+		           Label ContNewFileLabel
+		             x=0
+		             y=75
+		             width=35%
+		             height=25
+		             caption=Create New File:
+		             r=180
+		             g=255
+		             b=0
+		           TextField ContNewFile
+		             x=45%
+		             y=75
+		             width=35%
+		             height=25
+		             r=0
+		             g=180
+		             b=255
+		             br=0
+		             bg=18
+		             bb=25
+		           Button NewFile 
+		             x=80%
+		             y=75
+		             width=20%
+		             height=25
+		             caption=Go!
+		               
+		       end  		       
+		  end
 		Tab Assoc
  		  x=0
 		  y=0

@@ -164,8 +164,20 @@ function KID_CHECKBOX_AsGlob_Action(idx)
      AssocUpdate(idx) 
 end
 
+function GetCFG(idx)
+     local b = MAAN_Checked('KID_CHECKBOX_AsGlob#'..idx)
+     return CFG[b][idx]
+end     
+
+
 
 -- Work panel
+
+function ContentRoot()
+    for d in each(DirList(project.dir.."/JCR",'dir')) do
+        MAAN_Add('KID_LISTBOX_ContentRoot',d)
+    end    
+end
 
 function KID_BUTTON_Start_Action()
      project = {}
@@ -193,7 +205,7 @@ function KID_BUTTON_Start_Action()
          project.kthura[g] = project.kthura[g] or MAAN_Text('KID_TEXTAREA_Kthura#'..g)
          MAAN_Text('KID_TEXTAREA_Kthura#'..g,project.kthura[g]) 
      end   
-
+     ContentRoot()
      AssocRead()
 end
 
@@ -223,4 +235,14 @@ function GALE_OnLoad()
       CSay("Added project: "..a)
   end    
   MAAN_Hide('KID_PANEL_WorkPanel')
+  -- @IF $MAC
+  MAAN_Text('KID_BUTTON_OpenPwd',"Open in Finder")
+  -- @FI
+  -- @IF $WINDOWS
+  MAAN_Text('KID_BUTTON_OpenPwd','Open in Explorer')
+  -- @FI
+  -- @IF LINUX
+  MAAN_Hide('KID_BUTTON_OpenPwd')
+  -- @FI
+  
 end  
