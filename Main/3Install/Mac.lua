@@ -24,7 +24,34 @@ Version: 17.05.08
 ]]
 -- content comes later
 
-function HomeBrew()
+
+withstuff = {sox='--with-lame --with-flac --with-libvorbis'}
+
+function unixtype(c)
+   local bt = io.popen('type '..c,r)
+   local a  = trim(bt:read('*all'))
+   local nf = "not found"
+   bt:close()
+   return right(a,#nf)~=nf
+end   
+   
+
+function HomeBrew(c,m)
+    local iscript = ""
+    if not Proceed(m.."\n\nDo you want me to install '"..c.."'?") then return false end
+    if not unixtype('brew') then
+       if Proceed("In order to install the required software for you I need to install the package manager HomeBrew.\n\nDo you want me to install HomeBrew?") then 
+          iscript = "usr/bin/ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\";"
+       else
+          return false
+       end
+    end
+    iscript = iscript .."brew install "..c.." "..(withstff[c] or "")..";python 'LAURA II - Development Kit/Content/Resources/End.py';exit"
+    os.execute("'LAURA II - Development Kit/Content/Resources/OpenTerminal.sh' '"..iscript.."'")         
+end
+
+function Installed(c,p,m)
+    return unixtype(c) or HomeBrew(p or c,m)        
 end
 
 
