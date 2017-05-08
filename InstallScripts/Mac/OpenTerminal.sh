@@ -33,3 +33,4 @@ end runWithProfile
 
 # This script has been copied from: 
 # http://stackoverflow.com/questions/4404242/programmatically-launch-terminal-app-with-a-specified-command-and-custom-colors
+# Use it as you see fit :)
