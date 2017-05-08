@@ -23,3 +23,5 @@
 Version: 17.04.22
 ]]
 -- Nothing will happen here, but at least Linux won't crash now.
+
+CSay('Linux content ready!')

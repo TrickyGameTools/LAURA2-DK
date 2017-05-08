@@ -13,6 +13,8 @@ file.macicon=Main/LAURA2.icns
 
 [List:Resources.mac]
 /Volumes/Scyndi/Projects/Applications/BlitzMax/JCR6+/Kthura Map Editor/Kthura Map Editor.app > Kthura Map Editor.app
+InstallScripts/Mac/OpenTerminal.sh > OpenTerminal.sh
+InstallScripts/Mac/End.py > End.py
 
 [List:Resources.windows]
 /Volumes/Scyndi/Projects/Applications/BlitzMax/JCR6+/Kthura Map Editor/Kthura Map Editor.exe > Kthura Map Editor.exe

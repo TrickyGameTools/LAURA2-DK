@@ -23,3 +23,9 @@
 Version: 17.04.22
 ]]
 -- content comes later
+
+function HomeBrew()
+end
+
+
+CSay('Mac content ready!')

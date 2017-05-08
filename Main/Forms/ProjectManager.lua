@@ -26,6 +26,19 @@ Version: 17.05.07
 -- @USEDIR Libs
 -- @USEDIR Forms/ProjectManagerUse
 
+-- @IF $MAC
+-- @USE /3Install/Mac.lua
+-- @IF
+
+-- @IF $WINDOWS
+-- @USE /3Install/Window.lua
+-- @FI
+
+-- @IF $LINUX
+-- @USE /3Install/Linux.lua
+-- @FI
+
+
 -- projectlist = MAAN_LoadVar("ProjectList.lua") or {}
 
 

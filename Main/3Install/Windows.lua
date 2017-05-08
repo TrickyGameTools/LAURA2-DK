@@ -23,3 +23,5 @@
 Version: 17.04.22
 ]]
 -- content comes later
+
+CSay('Windows content ready!')
