@@ -20,8 +20,14 @@
 		
 	Exceptions to the standard GNU license are available with Jeroen's written permission given prior 
 	to the project the exceptions are needed for.
-Version: 17.05.08
+Version: 17.05.09
 ]]
--- content comes later
+
+function PConvert(file,data)
+    MAAN_Add(POutput,"Sorry, the Windows version is not yet able to auto-convert. This will be done later!")
+end
 
 CSay('Windows content ready!')
+
+
+

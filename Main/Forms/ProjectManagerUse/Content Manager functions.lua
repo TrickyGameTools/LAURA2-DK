@@ -24,13 +24,13 @@ Version: 17.05.09
 ]]
 MyDir = ""
 
-AudioImport = {  allow='ogg', ConvertQuestion='The only supported format for audio is OGG Vorbis.\nWith the help of SOX I can try to convert this file into OGG Vorbis.',command="sox <original> <target>",packagename='SOX',codename='sox'}
+AudioImport = {  allow='ogg', ConvertQuestion='The only supported format for audio is OGG Vorbis.\nWith the help of SOX I can try to convert this file into OGG Vorbis.',command="sox <original> <target>",packagename='SOX',codename='sox',stype='sox'}
 
 ImportConvert = { AUDIO=AudioImport,
                   MUSIC=AudioImport,
                   VOCALS=AudioImport,
                   FONTS={allow='ttf',ConvertQuestion='The only allowed format for fonts is TrueTypeFont (TTF)\nUnfortunately I don\'t know a tool to do this automatically for you'},
-                  GFX={allow='png',ConvertQuestion='The only supported format for graphics or images is the Portable Network Graphic (PNG)\n\nI can use ImageMagick in order to convert this file to the correct format',command='convert <original> <target>',packagename='ImageMagick',codename='imagemagick'},
+                  GFX={allow='png',ConvertQuestion='The only supported format for graphics or images is the Portable Network Graphic (PNG)\n\nI can use ImageMagick in order to convert this file to the correct format',command='convert <original> <target>',packagename='ImageMagick',codename='imagemagick',stype='convert'},
                   KTHURA={block='Kthura maps cannot be imported. Just create a new map'},                  
                 }
 
@@ -92,10 +92,21 @@ function PerformImport(file,tgt)
     local root=MAAN_ItemText('KID_LISTBOX_ContentRoot')
     local c=ImportConvert[root]
     if c then
-       if c.block then alert(c.block) return end
-    else
-       PCopy(file,CurContentDir().."/"..tgt) 
+       if c.block then alert(c.block) return end       
     end
+    PCopy(file,CurContentDir().."/"..tgt)
+    if not c then return end
+    if not c.allow then return end
+    MAAN_Add(POutput,"\n\nAnalysing content\n")
+    Poll()
+    local tree = DirTree(CurContentDir().."/"..tgt)
+    for f in each(tree) do
+        CSay("Analysing: "..f)
+        local e = lower(ExtractExt(f))
+        if lower(e) ~= c.allow then
+           PConvert(CurContentDir().."/"..tgt.."/"..f,c)
+        end
+    end     
 end
 
 function KID_BUTTON_ImportFileGo_Action()
@@ -116,6 +127,7 @@ function KID_BUTTON_ImportFileGo_Action()
         alert("I cannot handle "..f.."\nDoes it actually exist?")
      end         
      MAAN_Add(POutput,"\n\nOperation completed")
+     ContentReadDir()
 end
 
 function KID_BUTTON_ImportFileBrowse_Action()

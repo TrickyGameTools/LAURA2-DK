@@ -1,6 +1,6 @@
 --[[
 	LAURA II DK
-	Process manager
+	Process Manager
 	
 	
 	
@@ -45,7 +45,7 @@ function Process(cmd,noswitch)
     CSay("Process>"..sval(cmd))
     local bt=io.popen(cmd)
     if not bt then 
-       MAAN_Add(POutput,"ERROR: Process could not be created\n\n>>"..sval(cmd))
+       MAAN_Add(PPOutput,"ERROR: Process could not be created\n\n>>"..sval(cmd))
     end
     for l in bt:lines() do
        MAAN_Add(POutput,l.."\n")
@@ -71,4 +71,18 @@ function PCopy(original,target)
     end   
     -- @FI
     Process(cmd)
+end
+
+
+PConvert = PConvert or function(file,data)  -- Since Windows will very likely need a different setup for this, I can now make sure windows has its own convert routine.
+    local ori=file
+    local tgt=StripExt(file).."."..data.allow
+    local cmd = replace(data.command,"<original>",'"'..ori..'"'); cmd = replace(cmd,"<target>",'"'..tgt..'"')
+    if Installed(data.stype,data.codename,data.ConvertQuestion) then
+       MAAN_Add(POutput,"Converting '"..ori.."' to '"..tgt.."'\n")
+       Poll()
+       Process(cmd)
+       Poll()
+    end
+    MAAN_Add(POutput,"Removing:") Process('rm -v "'..ori..'"')
 end
