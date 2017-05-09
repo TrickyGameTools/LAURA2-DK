@@ -20,9 +20,19 @@
 		
 	Exceptions to the standard GNU license are available with Jeroen's written permission given prior 
 	to the project the exceptions are needed for.
-Version: 17.05.08
+Version: 17.05.09
 ]]
 MyDir = ""
+
+AudioImport = {  allow='ogg', ConvertQuestion='The only supported format for audio is OGG Vorbis.\nWith the help of SOX I can try to convert this file into OGG Vorbis.',command="sox <original> <target>",packagename='SOX',codename='sox'}
+
+ImportConvert = { AUDIO=AudioImport,
+                  MUSIC=AudioImport,
+                  VOCALS=AudioImport,
+                  FONTS={allow='ttf',ConvertQuestion='The only allowed format for fonts is TrueTypeFont (TTF)\nUnfortunately I don\'t know a tool to do this automatically for you'},
+                  GFX={allow='png',ConvertQuestion='The only supported format for graphics or images is the Portable Network Graphic (PNG)\n\nI can use ImageMagick in order to convert this file to the correct format',command='convert <original> <target>',packagename='ImageMagick',codename='imagemagick'},
+                  KTHURA={block='Kthura maps cannot be imported. Just create a new map'},                  
+                }
 
 function AllowedFileName(f)
     local allow='1234567890-_qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM'
@@ -75,6 +85,44 @@ end
 KID_LISTBOX_ContentRoot_SelectSingle=RootSelector
 KID_LISTBOX_ContentRoot_SelectDouble=RootSelector
 
+
+-- Import
+
+function PerformImport(file,tgt)
+    local root=MAAN_ItemText('KID_LISTBOX_ContentRoot')
+    local c=ImportConvert[root]
+    if c then
+       if c.block then alert(c.block) return end
+    else
+       PCopy(file,CurContentDir().."/"..tgt) 
+    end
+end
+
+function KID_BUTTON_ImportFileGo_Action()
+     Installed = Installed or function() return false end
+     PCls()
+     local root=MAAN_ItemText('KID_LISTBOX_ContentRoot')
+     local f=MAAN_Text('KID_TEXTFIELD_ImportFileName')
+     local tgt=root..":/"..MyDir
+     MAAN_Add(POutput,"Importing '"..f.."' to '"..tgt.."'\n\n")
+     if IsDir(f) then
+        if not Proceed(f.." is a directory.\nShould I try to import all files inside of it?") then return end
+        --local tree=DirTree(f)
+        --for entry in each(tree) do PerformImport(f.."/"..entry,ExtractDir(entry)) end
+        PerformImport(f,"")
+     elseif IsFile(f) then
+        PerformImport(f,"")
+     else
+        alert("I cannot handle "..f.."\nDoes it actually exist?")
+     end         
+     MAAN_Add(POutput,"\n\nOperation completed")
+end
+
+function KID_BUTTON_ImportFileBrowse_Action()
+   local f=RequestFile('What file should I import?')
+   if f~="" then MAAN_Text('KID_TEXTFIELD_ImportFileName',f) end
+end
+
 -- File selector
 
 function KID_LISTBOX_ContentFile_SelectDouble() -- Yeah... Only double counts this time :)
@@ -99,7 +147,7 @@ function KID_LISTBOX_ContentFile_SelectDouble() -- Yeah... Only double counts th
      elseif right(f,1)=="/" then      -- Change dir
         CSay("Go to dir: "..f)
         if MyDir~="" then MyDir = MyDir .. "/" end
-        MyDir = MyDir .. f
+        MyDir = MyDir .. left(f,#f-1) -- No slash
         ContentReadDir()
         return               
      else                             -- File
