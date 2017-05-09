@@ -45,7 +45,7 @@ function Process(cmd,noswitch)
     CSay("Process>"..sval(cmd))
     local bt=io.popen(cmd)
     if not bt then 
-       MAAN_Add(PPOutput,"ERROR: Process could not be created\n\n>>"..sval(cmd))
+       MAAN_Add(POutput,"ERROR: Process could not be created\n\n>>"..sval(cmd))
     end
     for l in bt:lines() do
        MAAN_Add(POutput,l.."\n")
@@ -64,7 +64,7 @@ function PCopy(original,target)
     cmd = 'copy "'..original..'" "'..target..'"'
     if IsDir(original) then
        if not MkDir(target,true) then
-          MAAN_Add("ERROR: I cannot create directory: "..target.."\n")
+          MAAN_Add(POutput,"ERROR: I cannot create directory: "..target.."\n")
           return
        end
        cmd='xcopy /e "'..original..'" "'..target..'"'
