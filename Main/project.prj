@@ -13,8 +13,14 @@ file.macicon=Main/LAURA2.icns
 
 [List:Resources.mac]
 /Volumes/Scyndi/Projects/Applications/BlitzMax/JCR6+/Kthura Map Editor/Kthura Map Editor.app > Kthura Map Editor.app
+/Volumes/Scyndi/Projects/Applications/BlitzMax/JCR6+/LAURA II/LAURA2.app > LAURA2.app
+/Volumes/Scyndi/Projects/Applications/JCR6/BlitzMax/Apps/CLI/jcr6 > jcr6
+/Volumes/Scyndi/Projects/Applications/JCR6/BlitzMax/Apps/CLI/jcr6_add > jcr6_add
 InstallScripts/Mac/OpenTerminal.sh > OpenTerminal.sh
 InstallScripts/Mac/End.py > End.py
 
 [List:Resources.windows]
 /Volumes/Scyndi/Projects/Applications/BlitzMax/JCR6+/Kthura Map Editor/Kthura Map Editor.exe > Kthura Map Editor.exe
+/Volumes/Scyndi/Projects/Applications/BlitzMax/JCR6+/LAURA II/LAURA2.exe > LAURA2.exe
+/Volumes/Scyndi/Projects/Applications/JCR6/BlitzMax/Apps/CLI/jcr6.exe > jcr6.exe
+/Volumes/Scyndi/Projects/Applications/JCR6/BlitzMax/Apps/CLI/jcr6_add.exe > jcr6_add.exe
