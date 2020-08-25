@@ -1,3 +1,6 @@
+![This project has been canceled](https://user-images.githubusercontent.com/11202073/91148408-e0053f80-e6b9-11ea-96e3-844fa44508db.png)
+
+
 # LAURA2-DK
 
 This is for now only a plan, and this repository was only created as a placeholder until the real works begin, which is not yet 100% sure. The point is that I know that the LAURA II engine is a pretty nice engine that I should not let go to waste.
